@@ -16,6 +16,6 @@ User selects address from dropdown populated by Google Maps API and confirms.
 
 ## Third step
 
-User is asked questions to filter them to next step
+User is asked questions to funnel them to the correct step.
 
 ![image](https://user-images.githubusercontent.com/6377577/77600930-b7e19c80-6edf-11ea-8eb9-66451e0d69ba.png)
