@@ -31,3 +31,9 @@ User uploads home inspection.
 User enters repair list or enters repair items.
 
 ![image](https://user-images.githubusercontent.com/6377577/77601797-20317d80-6ee2-11ea-9e89-16ad47e7855b.png)
+
+## Last step
+
+User enters contact information.
+
+![image](https://user-images.githubusercontent.com/6377577/77602003-b1a0ef80-6ee2-11ea-8e1b-8fb0382c2665.png)
