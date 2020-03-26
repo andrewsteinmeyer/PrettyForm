@@ -1,0 +1,42 @@
+
+<template name="repairListUpload">
+
+    <div>
+        <form name="repair-list" id="repair-list" autocomplete="off">
+
+            <p>To provide you with more accurate pricing and faster turnaround, please provide us with a concise repair list. You can upload it below, or type it into the box below.</p>
+
+            <a class="btn btn-warning js-upload-repairs" style="border-radius: 35px;"><i class="fa fa-cloud-upload"></i> Upload Repair List</a>
+
+            <p style="margin-top: 25px;">
+
+                {{#each file in files}}
+
+                <!-- thumbnail_url -->
+                <strong>{{file.original_filename}}.{{file.format}}</strong><br>
+
+                {{/each}}
+
+            </p>
+
+            <div class="row">
+
+                <div class="col">
+                    <div class="form-group">
+                        <label for="repair-list-details">If you did not upload a repair list, please specify your list here.</label>
+                        <textarea id="repair-list-details" class="form-control" rows="7" placeholder="{{repairsPlaceholder}}"></textarea>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="mt-2">
+                <button type="button" class="btn btn-outline-secondary js-go-back pull-left">&lt; Back</button>
+                <button type="button" class="btn btn-primary js-continue pull-right">Don't Have One</button>
+            </div>
+
+        </form>
+    </div>
+
+</template>

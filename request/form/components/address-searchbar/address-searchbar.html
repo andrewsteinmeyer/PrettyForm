@@ -1,0 +1,192 @@
+<template name="addressSearchBar">
+
+    <style>
+
+        .btn-search {
+            background-color: #1F528F;
+            color: white;
+            border: 0;
+        }
+
+        .btn-search:hover, .btn-search:focus, .btn-search:active {
+            color: white;
+        }
+
+    </style>
+    
+    <div>
+        <h5>First, let's get some information about this property.</h5>
+        <p>Type in the box below to search for the property address and select it from the dropdown.</p>
+
+        <div class="row" style="margin-bottom: 25px;">
+
+            {{#if notFound}}
+
+            <div class="container address-block">
+                <div class="row">
+                    <div class="col-md-9">  
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="text" class="form-control" id="address" autocomplete="off">
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="unit">Suite/Apt/Unit</label>
+                        <input type="text" class="form-control" id="unit" autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="zip">Postal Code</label>
+                            <input type="text" class="form-control" id="zip" autocomplete="off">
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" class="form-control" id="city" autocomplete="off">
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="state">State</label>
+                            <select id="state" class="form-control">
+                                <option value="AL">Alabama</option>
+                                <option value="AK">Alaska</option>
+                                <option value="AZ">Arizona</option>
+                                <option value="AR">Arkansas</option>
+                                <option value="CA">California</option>
+                                <option value="CO">Colorado</option>
+                                <option value="CT">Connecticut</option>
+                                <option value="DE">Delaware</option>
+                                <option value="DC">District Of Columbia</option>
+                                <option value="FL">Florida</option>
+                                <option value="GA">Georgia</option>
+                                <option value="HI">Hawaii</option>
+                                <option value="ID">Idaho</option>
+                                <option value="IL">Illinois</option>
+                                <option value="IN">Indiana</option>
+                                <option value="IA">Iowa</option>
+                                <option value="KS">Kansas</option>
+                                <option value="KY">Kentucky</option>
+                                <option value="LA">Louisiana</option>
+                                <option value="ME">Maine</option>
+                                <option value="MD">Maryland</option>
+                                <option value="MA">Massachusetts</option>
+                                <option value="MI">Michigan</option>
+                                <option value="MN">Minnesota</option>
+                                <option value="MS">Mississippi</option>
+                                <option value="MO">Missouri</option>
+                                <option value="MT">Montana</option>
+                                <option value="NE">Nebraska</option>
+                                <option value="NV">Nevada</option>
+                                <option value="NH">New Hampshire</option>
+                                <option value="NJ">New Jersey</option>
+                                <option value="NM">New Mexico</option>
+                                <option value="NY">New York</option>
+                                <option value="NC">North Carolina</option>
+                                <option value="ND">North Dakota</option>
+                                <option value="OH">Ohio</option>
+                                <option value="OK">Oklahoma</option>
+                                <option value="OR">Oregon</option>
+                                <option value="PA">Pennsylvania</option>
+                                <option value="RI">Rhode Island</option>
+                                <option value="SC">South Carolina</option>
+                                <option value="SD">South Dakota</option>
+                                <option value="TN">Tennessee</option>
+                                <option value="TX">Texas</option>
+                                <option value="UT">Utah</option>
+                                <option value="VT">Vermont</option>
+                                <option value="VA">Virginia</option>
+                                <option value="WA">Washington</option>
+                                <option value="WV">West Virginia</option>
+                                <option value="WI">Wisconsin</option>
+                                <option value="WY">Wyoming</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <a href="#" class="btn btn-primary js-select-not-found-address pull-right">Continue</a>
+
+            </div>
+
+            {{else}}
+
+            <div class="col">
+                <div class="input-group">
+                    <input id="autocomplete" autocomplete="new-address" placeholder="Please wait, Loading Addresses..."  type="text" class="form-control">
+                    <div class="input-group-append">
+                        <button name="search" class="btn btn-search js-search">Search</button>
+                    </div>
+                </div>
+            </div>
+
+            {{/if}}
+
+        </div>
+
+        <div class="row">
+            <div class="col">
+                {{#if address}}
+
+                <p><strong>Is this address correct?</strong></p>
+
+                <div class="alert alert-info" role="alert" style="smargin-top: 50px;background-color:#d9edf747;border-radius: 0;">
+
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div style="margin-bottom: 10px;font-weight: bold">{{address.formatted_address}} {{unit}}</div>
+
+                            <iframe src="{{address.url}}?&output=embed" frameborder="0" style="width: 100%"></iframe>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="suite">Unit Number?</label>
+                                <input type="text" class="form-control" id="suite" autocomplete="off" placeholder="Apt/Suite/Unit Number" style="smargin-left: 50px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-top: 20px;">
+                        <div class="col">
+                            <a href="#" class="btn btn-warning btn-block js-unselect-address" style="-webkit-border-radius: 0;-moz-border-radius: 0;border-radius: 0;">No, search again</a>
+                        </div>
+                        <div class="col">
+                        <a href="#" class="btn btn-success btn-block js-select-address" style="-webkit-border-radius: 0;-moz-border-radius: 0;border-radius: 0;">Yes, this is correct</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                {{/if}}
+
+            </div>
+        </div>
+
+
+        <div class="alert alert-warning need-help" role="alert" style="margin-top: 50px;display: none;">
+            <h6>Need Help?</h6>
+            A valid address is critical for us to provide an accurate and timely estimate.
+            As you type the address in the box above, a list of addresses will appear.
+            Please select the correct address from the list.
+            <a href="#" class="js-not-found">Can't find your address?</a>
+            Still having problems? <a href="https://punchlistusa.com/contact-new/">Contact Us</a>
+
+            <br>
+
+            <div style="margin-top: 10px;margin-bottom: 10px;">Example:</div>
+            <img src="/img/google-address-search.png" style="" class="img-fluid rounded">
+        </div>
+
+    </div>
+
+</template>

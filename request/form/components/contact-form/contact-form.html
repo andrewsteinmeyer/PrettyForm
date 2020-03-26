@@ -1,0 +1,112 @@
+<template name="contactForm">
+
+    <div>
+        <form name="select-contact" id="select-contact" autocomplete="off">
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="role">What is your role in this transaction?</label>
+                        <select id="role" class="form-control" required>
+                            <option value="">Please Select</option>
+                            <option value="selling">Selling/Listing Agent</option>
+                            <option value="buying">Buyers Agent</option>
+                            <option value="closing-buyers">Closing Coordinator - Buyer's Agent</option>
+                            <option value="closing-sellers">Closing Coordinator - Seller's Agent</option>
+                            <option value="homeowner">Homeowner</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col" style="display: none" id="other-block">
+                    <div class="form-group">
+                        <label for="other">Other</label>
+                        <input type="text" class="form-control" id="other" autocomplete="off">
+                        <small id="clientOtherHelp" class="form-text text-muted">Please describe your role
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+
+                    <h6>Your Information</h6>
+
+                    <div class="form-group">
+                        <!--<label for="firstName">First Name</label>-->
+                        <input type="text" class="form-control" id="firstName" autocomplete="off" value="{{firstNameForRequester}}" placeholder="First Name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <!--<label for="lastName">Last Name</label>-->
+                        <input type="text" class="form-control" id="lastName" autocomplete="off" value="{{lastNameForRequester}}" placeholder="Last Name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <!--<label for="email">Email</label>-->
+                        <input type="email" class="form-control" id="email" autocomplete="off" value="{{emailForRequester}}" placeholder="Email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <!--<label for="phone">Phone</label>-->
+                        <input type="tel" class="form-control" id="phone" autocomplete="off" placeholder="Phone" required>
+                    </div>
+
+                </div>
+
+                <div class="col-sm-12 col-md-6">
+
+                    {{#if showClientBlock}}
+                    <div id="client-info">
+
+                        <h6 id="clientTitle">Seller Information</h6>
+
+                        <div class="form-group">
+                            <!--<label for="clientFirstName">First Name</label>-->
+                            <input type="text" class="form-control" id="clientFirstName" autocomplete="off" placeholder="First Name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <!--<label for="clientLastName">Last Name</label>-->
+                            <input type="text" class="form-control" id="clientLastName" autocomplete="off" placeholder="Last Name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <!--<label for="clientEmail">Email</label>-->
+                            <input type="email" class="form-control" id="clientEmail" autocomplete="off" placeholder="Email" required>
+                            <small id="clientEmailHelp" class="form-text text-muted">We collect your client's email so
+                                they can be notified that we are working on their estimate.
+                            </small>
+                        </div>
+
+                    </div>
+                    {{/if}}
+
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group">
+                        <label for="ccEmail">Additional emails to be copied on the estimate when it's complete.</label>
+                        <input type="text" class="form-control" id="ccEmail" autocomplete="off" placeholder="Additional email addresses, if necessary">
+                        <small id="ccEmailHelp" class="form-text text-muted">Separate email addresses by commas.</small>
+                        <small id="ccEmailHelp1" class="form-text text-muted">Contact emails above will automatically receive a copy.</small>
+                        
+                    </div>                      
+                </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="mt-2">
+                <button type="button" class="btn btn-outline-secondary js-go-back pull-left">&lt; Back</button>
+                <button type="button" class="btn btn-primary js-select-contact pull-right">Continue</button>
+            </div>
+            
+        </form>
+    </div>
+
+</template>

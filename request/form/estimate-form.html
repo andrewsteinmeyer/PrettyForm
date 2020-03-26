@@ -1,0 +1,81 @@
+<template name="estimateForm">
+
+    <style>
+
+        .form-check-input {
+            margin-left: 0;
+        }
+        .new-estimate-form {
+            width: 70%;
+            margin-bottom: 100px;
+            font-family: 'Nunito', 'Arial', sans-serif;
+        }
+
+        .step-container {
+            margin-bottom: 50px;
+        }
+
+        .step {
+            padding: 25px;
+            margin-top: 25px;
+
+        }
+
+        @media (min-width: 768px) {
+            .workorder-wrapper {
+                margin-top: 50px;
+                margin-bottom: 50px;
+            }
+            .nav-release {
+                padding: 10px;
+                background-color: #2196f3
+            }
+
+            .approval-alert {
+                background-color: lightgreen;
+                border-radius: 3px;
+                color: #816B25;
+            }
+        }
+
+    </style>
+
+    <div class="container-fluid new-estimate-form">
+
+        <div class="step">
+
+            <!-- 1. Address Search -->
+            <div class="step-container" style="{{stepIs 1}}">
+                {{> addressSearchBar (addressBarArgs) }}
+            </div>
+
+            <!-- 2. List or No List? -->
+            <div class="step-container" style="{{stepIs 2}}">
+                {{> hasListQuestion (listQuestionArgs) }}
+            </div>
+
+            <!-- 3. Under Contract? -->
+            <div class="step-container" style="{{stepIs 3}}">
+                {{> underContractQuestion (contractQuestionArgs) }}
+            </div>
+
+            <!-- 4. Transaction Detail-->           
+            <div class="step-container" style="{{stepIs 5}}">
+                {{> transactionDetail (transactionDetailArgs) }}
+            </div>
+
+            <!-- 5. Repair List -->           
+            <div class="step-container" style="{{stepIs 6}}">
+                {{> repairListUpload (repairListArgs) }}
+            </div>
+                
+            <!-- 5. Contact Information -->           
+            <div class="step-container" style="{{stepIs 4}}">
+                {{> contactForm (estimateContactFormArgs) }}
+            </div>
+ 
+        </div>
+
+    </div>
+
+</template>

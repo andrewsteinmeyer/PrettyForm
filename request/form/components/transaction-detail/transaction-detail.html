@@ -1,0 +1,76 @@
+
+
+<template name="transactionDetail">
+
+    <style>
+         h6 {
+            border-bottom: 1px solid lightblue;
+            margin-bottom: 10px;
+            padding-bottom: 3px;
+            width: 100%;
+            margin-top: 15px;
+        }   
+    </style>
+
+    <div>
+        <form name="select-transaction" id="select-transaction" autocomplete="off">
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="closing">Estimated Closing Date</label>
+                        <input type="date" class="form-control" id="closing" autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                        <label for="repairs">How soon do you need repairs completed?</label>
+                        <select id="repairs" class="form-control" required>
+                            <option value="">Please Select</option>
+                            <option value="asap">ASAP - tomorrow or this week</option>
+                            <option value="soon">Before closing, this week or soon</option>
+                            <option value="close">After closing - let's get it done</option>
+                            <option value="never">Never - just looking to negotiate</option>
+                            <option value="prelisting">Not Yet Listed</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <h6>Full Home Inspection</h6>
+
+            <p>A full home inspection is required for an estimate. This allows us to provide the most accurate estimate possible.</p>
+
+            <a class="btn btn-warning js-upload" style="border-radius: 35px;"><i class="fa fa-cloud-upload"></i> Upload Inspection</a>
+
+            <p style="margin-top: 25px;">
+
+                {{#each file in files}}
+
+                    <!-- thumbnail_url -->
+                    <strong>{{file.original_filename}}.{{file.format}}</strong><br>
+
+                {{/each}}
+
+            </p>
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="details">Anything else we need to know before preparing your estimate?</label>
+                        <textarea id="details" class="form-control" rows="7"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="mt-2">
+                <button type="button" class="btn btn-outline-secondary js-go-back pull-left">&lt; Back</button>
+                <button type="button" class="btn btn-primary js-continue pull-right">Don't Have One</button>
+            </div>
+
+        </form>
+    </div>
+
+</template>
