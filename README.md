@@ -1,6 +1,6 @@
 # Request
 
-This was a redesign and rewrite of an estimate request form.  I modularized all steps into separate components.
+This was a redesign and rewrite of an estimate request form.  I modularized all steps into separate components.  This is the front-end code only.  I wrote all supporting code for backend calls in Javascript, MongoDB and Meteor.js.
 
 ## First step
 
