@@ -13,3 +13,9 @@ User types in address and addresses are pulled via Google Maps API.
 User selects address from dropdown populated by Google Maps API and confirms.
 
 ![image](https://user-images.githubusercontent.com/6377577/77600814-54f00580-6edf-11ea-9a9a-d0f8c0548fe8.png)
+
+## Third step
+
+User is asked questions to filter them to next step
+
+![image](https://user-images.githubusercontent.com/6377577/77600930-b7e19c80-6edf-11ea-8eb9-66451e0d69ba.png)
