@@ -1,3 +1,3 @@
 # Request
 
-This was a rewrite of an estimate request form.  The original form was all contained in one file.  This version was modularized.  
+This was a rewrite of an estimate request form.  I broke down the form steps into modular components.
