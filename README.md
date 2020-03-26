@@ -1,6 +1,6 @@
 # Request
 
-This was a rewrite of an estimate request form.  I broke down the form steps into modular components.
+This was a redesign and rewrite of an estimate request form.  I modularized all steps into separate components.
 
 ## First step
 
